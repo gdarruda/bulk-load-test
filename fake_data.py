@@ -21,7 +21,7 @@ def generate_row_df(num_rows: int,
     return pd.DataFrame({
         "id_client": list(chain(*[[str(uuid.uuid4())]*num_classes 
                                    for _ in range(num_rows)])),
-        "id_class": list(range(num_classes)) * num_rows,
+        "class_name": [f"class_{c}" for c in range(num_classes)] * num_rows,
         "predict_value": np.random.uniform(size=num_rows*num_classes)
     })
 
